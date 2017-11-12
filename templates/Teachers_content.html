@@ -1,0 +1,37 @@
+<div class="introduce-wrap clearfix">
+
+    <div class="container">
+        <div class="common-phptos">
+            <div class="row">
+                {% for person in person_list %}
+                <div class="col-xs-12 col-sm-3 col-md-1-5 phptomargin" style="z-index: 1;">
+                    <div class="abdivstyle">
+                        <div class="w120-img"><img class="img-w100" src={{person.image_url}} alt={{person.title}}
+                                                   title={{person.title}}></div>
+                        <p class="ceo-name">{{person.name}}</p>
+                        <p class="line-bottom"></p>
+                        <p class="job-detail">{{person.title}}</p>
+                        <p class="job-email">{{person.contact}}</p>
+                        <div class="detail-descript hid" style="display: none;">
+                            <p class="detail-more pdt8">
+                                {{person.detail}}
+                            </p>
+                            <p class="detail-more">
+                                {{person.detail_more}}
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>

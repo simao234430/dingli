@@ -1,0 +1,108 @@
+<div class="content yahei subchannel">
+    <div class="mainWrap clearfix">
+        <section class="colunm1">
+            <div class="usharewraper">
+                <script language="javascript" type="text/javascript">
+    $(document).ready(function(){
+$("a.xiao_ming").remove();
+if($("#play_pc").children().length===0){
+$("#play_pc").hide();
+}
+    getResData();
+//自动设置视频宽度
+self.setInterval("auto_size()",200);
+auto_size = function(){
+if ($("a#play_pc").size()>0){
+var width = $(".article").width();
+$("a#play_pc")[0].style.width = width + "px";
+$("a#play_pc")[0].style.height = width/7*5 + "px";
+}
+}
+    function getResData(){
+    jQuery.get("/application/visitor/article_item_visitors_2.jsp?articleID=20171018192502813384506&"+Math.random(), function(data){
+    $("#item_total").empty();
+    $("#item_total").append(data);
+    });
+    };
+    });
+
+                </script>
+
+            </div>
+            <div class="articleheader clearfix">
+                <script>
+ $(document).ready(function() {
+ $("#findjctj").find(":contains('精彩推荐')").removeAttr('href');
+
+});
+
+                </script>
+                <nav id="findjctj"><a>&nbsp;</a><a href="/publish/thunews/index.html" class="navigation_style">首页</a>&nbsp;&nbsp;
+                    - <a></a><a href="/publish/thunews/9648/index.html" class="navigation_style">{{news_detail.get_category_display}}</a>&nbsp;&nbsp; -
+                    <a>内容</a></nav>
+            </div>
+            <article class="article">
+                <h1>{{news_detail.title}}</h1>
+                <hr>
+                {% autoescape off %}
+                {{news_detail.content}}
+                {% endautoescape %}
+                 <p style="TEXT-ALIGN: right">编辑：{{news_detail.edit_person}}&nbsp;</p>
+                <div class="articletimewrapper">
+
+                    <div class="articletime"><i class="thunews-clock-o"></i>2017年10月18日 19:39:03　鼎利互联网+学院</div>
+                </div>
+            </article>
+
+
+        </section>
+        <section class="colunm2">
+
+            <section class="mod withborder">
+                <h2 class="red">最新更新</h2>
+                <script language="javascript" type="text/javascript">
+    //<![CDATA[
+    $(document).ready(function(){
+    getResData();
+    //获取数据
+    function getResData(){
+
+    jQuery.get("/publish/thunews/thunews_zxgx.json?r="+Math.random(), function(data){
+ data = eval('('+data+')');
+ $("#datalist_secl").empty();
+    var html = "<ul class='asidetimeline'>";
+    jQuery.each(data,function(entryIndex,entry){
+    dt = new Date();
+    var time2 = dt.Format("MM.dd.yyyy");
+    var mdd=time2.substr(0,5);
+  var href =(entry["videourl"]==''?entry["href"]:entry["videourl"]);
+    if(getMdd(entry["datetime"])==mdd){
+    html += "<li><span class='click'><i class='thunews-eye'></i> " +entry["dotnum"]+ " </span><div class='time today'><i class='arrow'><em></em></i><code></code>" + '今天' + "</div><h3><a href='"+href+"' title='" +entry["title"]+ "'>" + entry["title"] + "</a></h3></li>"
+    }else{
+    html += "<li><span class='click'><i class='thunews-eye'></i> " +entry["dotnum"]+ " </span><div class='time'><i class='arrow'><em></em></i><code></code>" + getMdd(entry["datetime"]) + "</div><h3><a href='"+href+"' title='" +entry["title"]+ "'>" + entry["title"] + "</a></h3></li>"
+    }
+    });
+    html += "</ul>";
+    $("#datalist_secl").append(html);
+    });
+    };
+    });
+    //]]>
+
+                </script>
+                <div id="datalist_secl">
+                    <ul class="asidetimeline">
+                        {% for news in news_list %}
+                        <li><span class="click"><i class="glyphicon glyphicon-user"></i>{{news.PV}}</span>
+                            <div class="time today"><i class="arrow"><em></em></i><code></code>{{news.edit_time.year}}.{{news.edit_time.month}}.{{news.edit_time.day}}.</div>
+                            <h3>
+                                <a href="/News_detail/{{news.id}}"
+                                   title="{{news.title}}">{{news.title}}</a></h3>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+        </section>
+    </div>
+</div>

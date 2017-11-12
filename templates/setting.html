@@ -1,0 +1,86 @@
+<link rel='stylesheet' href='/static/css/inner1.css' />
+<!--<script>-->
+    <!--alert($("body"));-->
+<!--</script>-->
+{% extends 'base.html' %}
+
+
+{% block content %}
+<article class="content">
+
+    <!--<section class="channeltopimg detailtopimg">-->
+
+             <!--<img src="../images/abouttop_03.jpg" class="img1">-->
+
+<!--</section>-->
+
+     <section class="mainWrap relative">
+
+     	<div class="detailContent clearfix">
+
+        	<div class="column_1">
+
+       	  	<section class="leftNav">
+
+                	<h3 id="submenu"><a class="thuicon-menu menuicon"></a>院系设置</h3>
+
+                    <ul class="yahei" data-index="{{index}}">
+
+                      <li ><a href="/setting/0">软件系</a></li>
+
+                        <li><a href="/setting/1">通信系</a></li>
+
+                         <li><a href="/setting/2">电子系</a></li>
+
+
+                    </ul>
+
+                </section>
+
+          </div>
+
+            <div class="column_2">
+
+                <article class="mainContent">
+
+                    <header class="contentNav">
+
+                        <nav class="nav"><a href="/">首页</a> · <a href="./">院系设置</a> · <a href="">内容</a></nav>
+
+                        <h1>{{index_display}}</h1>
+                    </header>
+
+                    <section class="article">
+                    <!--{% autoescape off %}-->
+                        {{news.content}}
+                    <!--{% endautoescape %}-->
+
+                        <!--&lt;!&ndash;&lt;!&ndash;内容&ndash;&gt;&ndash;&gt;-->
+                    <!--<p><strong>软件技术</strong></p>-->
+                        <!--<p><strong>培育软件应用开发技术、管理型人才</strong></p>-->
+                        <!--<p><strong>培养目标:</strong>培养掌握计算机理论基础、软件开发相关技术，具备软件项目设计、开发、测试、配置、管理与维护技能，具有项目设计与项目管理能力的高端技术技能型人才。</p>-->
+                     <!--<p><strong>就业方向:</strong>软件开发类方向，主要从事软件开发工程师、系统管理工程师、软件测试工程等管理岗位。</p>-->
+                        <!--<p><strong>毕业薪资:</strong>应届毕业生平均就业薪资5K/月左右。 初级测试工程师年薪约在4-7万元左右；测试工程师年薪约在7-12万元左右高级测试工程师年薪约12-18万元左右；Team Leader（测试主管）年薪在18+万，一般具有5年左右工作经验；测试经理年薪在22+万。</p>-->
+                    <!--<p><img border="0" src="/static/images/20170302104718979.jpg"></p>-->
+<!--内容结束-->
+
+                    </section>
+
+
+
+                </article>
+
+            </div>
+
+        </div>
+
+     </section>
+
+</article>
+<script type="text/javascript">
+$(document).ready(function() {
+    var $temp_index = $("section ul").data("index");
+    $("section ul li:eq("+$temp_index +")").addClass("current");
+});
+</script>
+{% endblock %} %}
