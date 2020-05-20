@@ -16,7 +16,7 @@ easy-thumbnails==2.4.2
 fake-factory==9999.9.9
 foo==0.1
 html5lib==0.999999999
-httplib2==0.10.3
+httplib2==0.18.0
 idna==2.6
 Markdown==2.6.9
 MySQL-python==1.2.5
