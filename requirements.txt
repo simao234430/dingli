@@ -32,7 +32,7 @@ sqlparse==0.2.3
 test==1.0.1
 Unidecode==0.4.21
 urllib==1.21.1
-urllib3==1.22
+urllib3==1.26.5
 webencodings==0.5.1
 xlrd==1.1.0
 xlutils==2.0.0
